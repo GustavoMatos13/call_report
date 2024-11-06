@@ -1,10 +1,4 @@
 
-
-
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>API REST - Chamadas Telefônicas</title>
-
-
     <h1>API REST - Chamadas Telefônicas</h1>
 
     <p>Este projeto tem como objetivo receber informações de duração de uma chamada, para calcular as taxas, sendo elas fixas e/ou por minuto de acordo com as especificações de horário. O projeto recebe os dados e armazena em dois detalhamentos da chamada: o início e o fim, enviando como parâmetro para os cadastros dos registros, o número de telefone de origem e o número de telefone destino.</p>
