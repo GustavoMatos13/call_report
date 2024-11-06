@@ -23,13 +23,13 @@ http://127.0.0.1:8000/api/call/post
 
 os parâmetros são (exemplo):
 
-{
-"call_id": "01",
-"start": "2016-02-29T12:00:00Z",
-"end": "2016-02-29T14:00:00Z",
-"source": "11913210118",
-"destination": "1125136526"
-}
+{  
+"call_id": "01",  
+"start": "2016-02-29T12:00:00Z",  
+"end": "2016-02-29T14:00:00Z",  
+"source": "11913210118",  
+"destination": "1125136526"  
+}  
 
 para obter os resultados você acessa:
 http://127.0.0.1:8000/api/call/get/{CALL_ID}
@@ -55,3 +55,28 @@ http://127.0.0.1:8000/api/call/get/{CALL_ID}
 - sqlparse==0.5.1
 - tzdata==2024.2
 - uritemplate==4.1.1
+
+
+# DOCUMENTAÇÃO API 
+
+## cadastrar o registro:  
+…/api/call/post  
+ {  
+  "call_id": String,  
+  "start": Data,  
+  "end": Data,  
+  "source": String,  
+  "destination": String  
+ }  
+- call_id- Tem que ser único, usado para identificação de cada par de registro
+- start- data de início da chamada
+- end- data com a finalização da chamada
+- source- telefone de origem
+- destination- telefone destino
+
+## obter registro(s):  
+…/api/call/get/{SOURCE}/{MONTH}/{YEAR}
+
+- source- parâmetro obrigatório, telefone de origem
+- month- opcional, mês de referência de registro
+- year- opcional, ano de referência de registro
