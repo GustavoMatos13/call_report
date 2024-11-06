@@ -20,7 +20,9 @@ telefone de origem e o número de telefone destino.
 ## TESTES:
 para testar você pode cadastrar um novo registro de chamada através da url:
 http://127.0.0.1:8000/api/call/post
+
 os parâmetros são (exemplo):
+
 {
 "call_id": "01",
 "start": "2016-02-29T12:00:00Z",
