@@ -1,10 +1,9 @@
 
-<head>
-    <meta charset="UTF-8">
+
+
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>API REST - Chamadas Telefônicas</title>
-</head>
-<body>
+
 
     <h1>API REST - Chamadas Telefônicas</h1>
 
@@ -96,5 +95,3 @@
         <li>uritemplate==4.1.1</li>
     </ul>
 
-</body>
-</html>
