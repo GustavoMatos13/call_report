@@ -28,7 +28,10 @@ def post_call_record(request):
                                   timestamp=call_request['start'],
                                   source=call_request['source'],
                                   destination=call_request['destination'])
-            callEnd = CallEnd(timestamp=call_request['start'])
+
+            callEnd = CallEnd(timestamp=call_request['start'],
+                              call_id=callStart
+                              )
             try:
                 callStart.save()
                 callEnd.save()
