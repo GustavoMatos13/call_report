@@ -1,10 +1,10 @@
-# fly.toml app configuration file generated for telefonica on 2024-11-06T21:12:37-03:00
+# fly.toml app configuration file generated for telefonica on 2024-11-06T22:27:02-03:00
 #
 # See https://fly.io/docs/reference/configuration/ for information about how to use this file.
 #
 
 app = 'telefonica'
-primary_region = 'gru'
+primary_region = 'gig'
 console_command = '/code/manage.py shell'
 
 [build]

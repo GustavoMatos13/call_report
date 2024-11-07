@@ -8,28 +8,28 @@ from api_rest.models.callEnd import CallEnd
 from rest_framework.decorators import api_view
 from rest_framework.response import Response
 from rest_framework import status
-
+import json
 from api_rest.serializers import CallEndSerializer
 
 
 @api_view(['POST'])
 def post_call_record(request):
     if request.method == 'POST':
-        call_request = request.data
+        data = json.loads(request.body)
         if (
-            call_request['call_id'] and
-            call_request['start'] and
-            call_request['end'] and
-            call_request['source'] and
-            call_request['destination']
+            data['call_id'] and
+            data['start'] and
+            data['end'] and
+            data['source'] and
+            data['destination']
         ):
 
-            callStart = CallStart(call_id=call_request['call_id'],
-                                  timestamp=call_request['start'],
-                                  source=call_request['source'],
-                                  destination=call_request['destination'])
+            callStart = CallStart(call_id=data['call_id'],
+                                  timestamp=data['start'],
+                                  source=data['source'],
+                                  destination=data['destination'])
 
-            callEnd = CallEnd(timestamp=call_request['start'],
+            callEnd = CallEnd(timestamp=data['start'],
                               call_id=callStart
                               )
             try:

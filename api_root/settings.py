@@ -91,11 +91,11 @@ import os
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': os.environ['DATABASE_URL'].split('/')[-1],
-        'USER': os.environ['DATABASE_URL'].split(':')[1][2:],
-        'PASSWORD': os.environ['DATABASE_URL'].split(':')[2].split('@')[0],
-        'HOST': os.environ['DATABASE_URL'].split('@')[1].split(':')[0],
-        'PORT': '5432',  # Ou a porta configurada
+        'NAME': 'postgres',  # Nome do banco de dados (geralmente "postgres")
+        'USER': 'postgres',  # Usuário do banco de dados
+        'PASSWORD': 'EBNcKRDodRhR289',  # Senha do banco de dados
+        'HOST': 'telefonica-db.internal',  # Host fornecido pelo Fly.io
+        'PORT': '5432',  # Porta do banco de dados
     }
 }
 
