@@ -16,10 +16,18 @@ telefone de origem e o número de telefone destino.
 - rode as migrações do banco com os comandos “python manage.py migrate”
 - (opcional) para configurar o ADMIN crie um super usuário
     “python manage.py createsuperuser”
+- ajustar o arquivo de settings.py para o banco local do sqlite  
+
+ DATABASES = {  
+    'default': {  
+        'ENGINE': 'django.db.backends.sqlite3',  
+        'NAME': BASE_DIR / 'db.sqlite3',  
+     }  
+ }  
 
 ## TESTES:
 para testar você pode cadastrar um novo registro de chamada através da url:
-http://127.0.0.1:8000/api/call/post
+.../api/call/post
 
 os parâmetros são (exemplo):
 
@@ -32,11 +40,12 @@ os parâmetros são (exemplo):
 }  
 
 para obter os resultados você acessa:
-http://127.0.0.1:8000/api/call/get/{CALL_ID}
+.../api/call/get/{CALL_ID}
 
 ## DESCRIÇÃO DE AMBIENTE DE TRABALHO:
 - Sistema Operacional: WINDOWS
 - IDLE: Visual Studio Code
+- Deploy: fly io
 - Biblioteca e Framework usados no projeto:
 - asgiref==3.8.1
 - Django==5.1.2
@@ -60,22 +69,20 @@ http://127.0.0.1:8000/api/call/get/{CALL_ID}
 # DOCUMENTAÇÃO API 
 
 ## cadastrar o registro:  
-…/api/call/post  
- {  
-  "call_id": String,  
-  "start": Data,  
-  "end": Data,  
-  "source": String,  
-  "destination": String  
- }  
+https://telefonica.fly.dev/api/call/post
+call_id:77,start:2018-02-28T21:57:13Z,end:2018-03-01T22:10:56Z,source:99988526423,destination:9933468278
+
+#### Enviar como string sem espaços e nessa formatação, pois é uma limitação do fly io
+
+
 - call_id- Tem que ser único, usado para identificação de cada par de registro
 - start- data de início da chamada
 - end- data com a finalização da chamada
-- source- telefone de origem
-- destination- telefone destino
+- source- telefone de origem pode conter apenas 10 ou 11 dígitios com o código de área
+- destination- telefone destino pode conter apenas 10 ou 11 dígitios com o código de área
 
 ## obter registro(s):  
-…/api/call/get/{SOURCE}/{MONTH}/{YEAR}
+https://telefonica.fly.dev/api/call/{SOURCE}/{MONTH}/{YEAR}
 
 - source- parâmetro obrigatório, telefone de origem
 - month- opcional, mês de referência de registro
