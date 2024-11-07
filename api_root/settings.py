@@ -80,10 +80,22 @@ WSGI_APPLICATION = 'api_root.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/5.1/ref/settings/#databases
 
+#DATABASES = {
+#    'default': {
+#        'ENGINE': 'django.db.backends.sqlite3',
+#        'NAME': BASE_DIR / 'db.sqlite3',
+#    }
+#}
+
+import os
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': os.environ['DATABASE_URL'].split('/')[-1],
+        'USER': os.environ['DATABASE_URL'].split(':')[1][2:],
+        'PASSWORD': os.environ['DATABASE_URL'].split(':')[2].split('@')[0],
+        'HOST': os.environ['DATABASE_URL'].split('@')[1].split(':')[0],
+        'PORT': '5432',  # Ou a porta configurada
     }
 }
 
